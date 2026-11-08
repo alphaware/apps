@@ -1,3 +1,3 @@
 # Apps by Alphaware
 
-Public app, support and privacy pages for Softly, Launchloom, iLovePhoto and Oftenly, served by GitHub Pages. Edit `build.py`, run `python3 build.py`, and push.
+Public app, support and privacy pages for Softly, Launchloom, iLovePhoto and Oftenly, served by GitHub Pages. App content lives in `build.py`; the landing page lives in `home.py` and `assets/home.css`. Run `python3 build.py` and push to publish.
