@@ -82,6 +82,36 @@ APPS = {
             ("How do I keep editing an exported photo?", "Open its result screen and choose Edit this result, then pick the next tool. The previous export remains available."),
         ],
     ),
+
+    "oftenly": dict(
+        name="Oftenly", full="Oftenly - Habit Tracker", accent="#A46735", soft="#F4E2CB",
+        tagline="Small habits, beautifully kept.",
+        pitch="A calm habit tracker for iPhone. Build routines, celebrate consistency and see your progress, with no account, ads or subscriptions.",
+        features=["One-tap check-ins and a clear view of today", "Daily and selected-weekday schedules with gentle reminders", "Current and longest streaks that respect your days off",
+                  "Calendar history, completion rates and progress insights", "Personal icons, colours, light and dark themes", "Export and import your habits and history", "Private iCloud sync that you can turn off", "Optional Apple Health goals, widgets and Apple Watch check-ins"],
+        privacy=[
+            ("The short version", "Oftenly has no account system, developer-operated servers, advertising, analytics or tracking. We cannot see your habits. Your habit data is kept on your device and, when iCloud sync is enabled, in your private iCloud account."),
+            ("What's stored on your device", "Oftenly stores the habits you create, schedules, goals, completion history, notes, moods, timer entries and preferences in its local app storage. iOS may include this storage in your own device or computer backups, depending on your settings."),
+            ("iCloud sync", "If iCloud sync and backup is enabled, Oftenly stores habit records in your private iCloud storage through Apple's system service. Those records can include habit names, schedules, goals, notes and completion history. Apple handles that service under its own policies; Oftenly's developer does not receive a copy. You can turn sync off in Oftenly's Settings. Turning it off does not itself erase records already stored in iCloud."),
+            ("Apple Health", "With your permission, Oftenly reads the Health categories you choose, such as steps, exercise, mindfulness or sleep, to complete matching habit goals. It never writes to Apple Health. Raw Health readings are processed on your iPhone and are not sent to our servers. Resulting habit goals and check-ins are part of your habit history and may be included in your private iCloud sync or a backup you export."),
+            ("Widgets, Shortcuts and Apple Watch", "Oftenly shares habit information with its own widgets and system actions using app-specific shared storage on your device. If you use the companion Apple Watch app, today's habit information and check-ins are exchanged with your paired watch using Apple's connectivity service."),
+            ("Reminders and app lock", "Reminders are scheduled locally by iOS after you grant notification permission. If you enable app lock, Apple's authentication system checks Face ID, Touch ID or your device passcode. Oftenly does not receive your biometric information."),
+            ("Exporting and sharing", "Export Data creates a file containing your habits and history only when you ask. You decide where to save or share it, and the destination's privacy policy applies. Imported backups are read from the files you choose. If you email support, you choose which information or attachments to include."),
+            ("Deleting your data", "Deleting a habit in Oftenly removes its local history; when iCloud sync is enabled, that deletion is also sent to your private iCloud storage. Archiving keeps the habit and its history. Uninstalling the app removes its local container but does not necessarily erase iCloud records, files you exported or existing device backups. Those copies are managed separately through the relevant Apple settings or storage destination."),
+            ("Changes", "If this policy changes, the updated version will be posted here with a new date."),
+        ],
+        faq=[
+            ("Was Oftenly previously called Habitly?", "Yes. Oftenly is the app's current name. Some older backup files and internal identifiers may still use Habitly; you can use Settings → Import Data to restore compatible backups."),
+            ("How do I track a habit?", "Create a habit, choose its schedule, and tap its card when you've completed it. Open the habit's detail view to see its history or update a past due day."),
+            ("Do days off break my streak?", "No. Streaks count consecutive days when the habit is due and skip unscheduled days. Today stays pending until the day is over, so an unfinished habit does not immediately break your streak."),
+            ("How do I move to a new iPhone?", "With iCloud sync enabled and the same Apple Account, Oftenly can sync your saved habits. You can also use Settings → Export Data on the old phone, keep the JSON file somewhere safe, then use Settings → Import Data on the new phone. Imports merge compatible history rather than deleting your existing habits."),
+            ("Why am I not receiving reminders?", "Check that the habit has a reminder enabled and that Oftenly has notification permission in iPhone Settings. Focus and notification settings may affect alerts. iOS limits how many reminders an app can schedule."),
+            ("Can I use Oftenly without iCloud?", "Yes. Habit tracking works locally. Turn off iCloud sync and backup in Oftenly's Settings if you want to keep using it only on this device, and export a backup before changing phones or uninstalling."),
+            ("Why didn't my Apple Health habit complete?", "Check that you've linked the habit to the correct Health category, allowed read access and reached its goal. Open Oftenly after the Health information becomes available. Oftenly reads only the supported categories you choose and does not write to Health."),
+            ("What's the difference between archiving and deleting?", "Archiving removes a habit from your active routine while keeping its history, and you can restore it from Settings → Archived habits. Deleting removes that habit and its history."),
+            ("Where do I find backups and appearance settings?", "Open Settings in Oftenly. You can change appearance, manage archived habits, configure iCloud sync, and export or import your data there."),
+        ],
+    ),
 }
 
 CSS = """
@@ -136,4 +166,4 @@ index = f'<h1>Apps by Alphaware</h1><p class="muted">Small, private, free iPhone
 app_names = ", ".join(a["name"] for a in APPS.values())
 write("index.html", page("Apps by Alphaware", "#6958E8", index, f"{app_names}: small, private, free iPhone and iPad apps."))
 write(".nojekyll", "")
-write("README.md", "# Apps by Alphaware\n\nPublic app, support and privacy pages for Softly, Launchloom and iLovePhoto, served by GitHub Pages. Edit `build.py`, run `python3 build.py`, and push.\n")
+write("README.md", "# Apps by Alphaware\n\nPublic app, support and privacy pages for Softly, Launchloom, iLovePhoto and Oftenly, served by GitHub Pages. Edit `build.py`, run `python3 build.py`, and push.\n")
