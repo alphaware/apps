@@ -55,6 +55,32 @@ APPS = {
         ],
     ),
 
+    "paperly": dict(
+        name="Paperly", full="Paperly: PDF Scanner & Tools", accent="#0F524A", soft="#D4E8D6",
+        tagline="Less paperwork. More possibility.",
+        pitch="Scan, tidy and share documents on your iPhone or iPad. Twelve free PDF tools that work on your device, with no account and no upload server.",
+        features=["Scan multi-page documents with automatic edge detection and cropping", "Rename, filter, rotate, reorder and add pages before you save",
+                  "Photos to PDF and ID cards on one A4 page", "Merge, split, extract, reorder and rotate pages", "Compress toward a target size, with an honest result",
+                  "Recognize text and make scanned PDFs searchable", "Add a signature, text, watermark or page numbers", "Password-protect a copy, export JPG or PNG, print and share"],
+        privacy=[
+            ("The short version", "Paperly doesn't collect any data. Scanning, OCR, compression and every other tool run on your device. There's no account, no document upload server, no advertising, no analytics and no tracking. We never receive your documents."),
+            ("Documents and exports", "PDFs, extracted text and generated images are stored in Paperly's private library on your device. Passwords you enter to open, protect or unlock a PDF are used only for that operation and aren't saved. A signature you draw is used only for the document you're signing."),
+            ("Camera, Photos and Files", "The camera is used only while you scan. Apple's Photos picker gives Paperly only the images you choose. If you save page images to Photos, Paperly asks for add-only access, which can't read your library. The Files picker gives access only to the files you select. Importing from iCloud or another provider may download through that provider, whose own policy applies."),
+            ("Sharing and backups", "Files leave Paperly only when you share, print or export them, and go only where you choose; the destination's own policy then applies. Depending on your settings, iCloud or computer backups may include Paperly's library."),
+            ("Deleting your data", "Delete a document or export in the app to remove that copy, or delete the app to remove everything Paperly stored. Copies you shared or saved elsewhere are managed there."),
+            ("Children", "Paperly isn't directed at children under 13 and collects no information from anyone."),
+            ("Changes", "If this policy changes, the new version will be posted here with a new date."),
+        ],
+        faq=[
+            ("How do I scan a document?", "Tap Scan a document. Hold your iPhone over the page; Paperly finds the edges and captures automatically, or tap the shutter. When you're done, review the pages: rename the scan, choose a filter, rotate, reorder or add pages, then tap Save."),
+            ("Can I add pages to a scan later?", "While reviewing a scan, tap + to scan more pages or add photos. For a saved document, use Merge to combine it with another PDF, or Organize to change page order."),
+            ("Why is my compressed PDF not smaller?", "Some PDFs are already efficient. Paperly never gives you a file larger than the original and tells you when it can't reach your target size. Compression flattens pages, so searchable text, links and forms may be removed."),
+            ("Is the signature legally binding?", "Paperly adds a drawn, visual signature. It isn't a certificate-based digital signature. Check what the recipient accepts."),
+            ("Does Paperly work offline?", "Yes. Every tool runs on your device. You need a connection only to fetch files stored in a cloud provider or to share somewhere online."),
+            ("Where are my files stored?", "In Paperly's library on your device. Use Share, Print or Save to Files to put a copy somewhere else."),
+        ],
+    ),
+
     "ilovephoto": dict(
         name="iLovePhoto", full="iLovePhoto: Everyday Photo Tools", accent="#EB546F", soft="#FCE0E5",
         tagline="A little love. For every photo.",
@@ -165,4 +191,4 @@ for key, a in APPS.items():
 
 write("index.html", render_home())
 write(".nojekyll", "")
-write("README.md", "# Apps by Alphaware\n\nPublic app, support and privacy pages for Softly, Launchloom, iLovePhoto and Oftenly, served by GitHub Pages. App content lives in `build.py`; the landing page lives in `home.py` and `assets/home.css`. Run `python3 build.py` and push to publish.\n")
+write("README.md", "# Apps by Alphaware\n\nPublic app, support and privacy pages for Softly, Launchloom, iLovePhoto, Oftenly and Paperly, served by GitHub Pages. App content lives in `build.py`; the landing page lives in `home.py` and `assets/home.css`. Run `python3 build.py` and push to publish.\n")
