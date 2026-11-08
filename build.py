@@ -7,6 +7,30 @@ EMAIL = "jkexam.in@gmail.com"
 UPDATED = "8 November 2026"
 
 APPS = {
+    "oftenly": dict(
+        name="Oftenly", full="Oftenly - Habit Tracker", accent="#CC4722", soft="#FFE3D9",
+        tagline="Small habits, beautifully kept.",
+        pitch="A calm, private habit tracker for iPhone and Apple Watch. Every feature is free, there's no account, and your habits stay yours.",
+        features=["Tap once to complete a habit", "Fair streaks that respect your days off", "Flexible schedules, measurable and quit habits",
+                  "Insights, heatmaps and history", "Widgets and Apple Watch", "Optional Apple Health and iCloud sync", "Face ID lock, export and delete"],
+        privacy=[
+            ("The short version", "Oftenly doesn't collect any data. There's no account, no server of ours, no advertising, no analytics and no tracking. The developer can't see your habits or anything about you."),
+            ("What's stored, and where", "Your habits, completions and settings are saved on your iPhone. If iCloud sync is on, they're also kept in your own private iCloud storage so they appear on your other devices; Apple stores that data under your Apple Account, and the developer has no access to it. You can turn iCloud sync off in Settings."),
+            ("Apple Health", "If you link a habit to Apple Health, Oftenly asks permission to read only the data you choose (such as steps, exercise minutes or mindful minutes) to complete that habit automatically. Health data is read on your iPhone, never leaves it, and is never written to Health or used for anything else."),
+            ("Apple Watch and widgets", "Today's habits are shared between Oftenly, its widgets and its Apple Watch app on your own devices, so you can check in from anywhere."),
+            ("Notifications", "Reminders are local notifications scheduled on your iPhone."),
+            ("Face ID", "If you turn on the lock, iOS checks your face or passcode on the device. Oftenly never receives biometric data."),
+            ("Exporting and deleting", "Export Data creates a file only when you ask, saved where you choose. Delete habits in the app, or delete the app to remove everything stored on your iPhone; turn off iCloud sync first if you also want the iCloud copy removed."),
+            ("Children", "Oftenly collects no personal information from anyone, including children."),
+            ("Changes", "If this policy changes, the new version will be posted here with a new date."),
+        ],
+        faq=[
+            ("Will missing a day ruin my streak?", "Only days a habit is scheduled count. Days off and paused days never break a streak, and today doesn't count against you until it's over."),
+            ("How do I use Oftenly on Apple Watch?", "Install it from the Watch app on your iPhone. Today's habits appear on your watch, and check-ins sync back to your iPhone."),
+            ("How do I move my habits to a new iPhone?", "Keep iCloud sync on, or use Settings → Export Data and import the file on the new iPhone."),
+            ("I'm not getting reminders.", "Check Settings → Notifications → Oftenly, and that the habit's reminder is turned on."),
+        ],
+    ),
     "softly": dict(
         name="Softly", full="Softly: Period & Cycle Tracker", accent="#BF3A59", soft="#F7D9DF",
         tagline="Your cycle, gently understood.",
