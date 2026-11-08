@@ -74,7 +74,7 @@ def page(title, accent, body, description):
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(description)}">
 <style>:root{{--accent:{accent}}}{CSS}</style></head><body><main>{body}
-<footer>Made by Yawar Azad · <a href="mailto:{EMAIL}">{EMAIL}</a></footer></main></body></html>
+<footer>Made by Alphaware · <a href="mailto:{EMAIL}">{EMAIL}</a></footer></main></body></html>
 """
 
 def header(app):
@@ -103,7 +103,7 @@ for key, a in APPS.items():
     write(f"{key}/support/index.html", page(f"{a['name']} support", a["accent"], support, f"Help and answers for {a['name']}."))
     cards.append(f'<div class="card" style="--accent:{a["accent"]}"><div class="dot"></div><h2>{html.escape(a["name"])}</h2><p class="muted">{html.escape(a["pitch"])}</p><p class="links"><a href="{key}/">About</a><a href="{key}/support/">Support</a><a href="{key}/privacy/">Privacy</a></p></div>')
 
-index = f'<h1>Apps by Yawar Azad</h1><p class="muted">Small, private, free iPhone apps.</p><div class="apps">{"".join(cards)}</div>'
-write("index.html", page("Apps by Yawar Azad", "#6958E8", index, "Softly and Launchloom: small, private, free iPhone apps."))
+index = f'<h1>Apps by Alphaware</h1><p class="muted">Small, private, free iPhone apps.</p><div class="apps">{"".join(cards)}</div>'
+write("index.html", page("Apps by Alphaware", "#6958E8", index, "Softly and Launchloom: small, private, free iPhone apps."))
 write(".nojekyll", "")
-write("README.md", "# Apps by Yawar Azad\n\nPublic support and privacy pages for Softly and Launchloom, served by GitHub Pages. Edit `build.py`, run `python3 build.py`, and push.\n")
+write("README.md", "# Apps by Alphaware\n\nPublic support and privacy pages for Softly and Launchloom, served by GitHub Pages. Edit `build.py`, run `python3 build.py`, and push.\n")
