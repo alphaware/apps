@@ -1,4 +1,4 @@
-"""Builds the public support and privacy pages for Softly and Launchloom.
+"""Builds the public app, support and privacy pages for Alphaware apps.
 Run: python3 build.py. Output is the folder itself (served by GitHub Pages)."""
 from pathlib import Path
 import html
@@ -53,6 +53,35 @@ APPS = {
             ("Which sizes do I need?", "Apple requires a 6.9-inch iPhone set, and a 13-inch iPad set if your app runs on iPad. Launchloom's Guide tab links to Apple's and Google's current specifications."),
         ],
     ),
+
+    "ilovephoto": dict(
+        name="iLovePhoto", full="iLovePhoto: Everyday Photo Tools", accent="#EB546F", soft="#FCE0E5",
+        tagline="A little love. For every photo.",
+        pitch="Everyday photo tools for iPhone and iPad. Compress, resize, crop, convert and create with on-device processing, no account and no image uploads.",
+        features=["Batch compress, resize, crop, rotate and convert photos", "JPG, PNG, HEIC and TIFF exports", "Light adjustments and eight filter choices",
+                  "Background removal and automatic face blur", "Text watermarks and meme captions", "Collages, animated GIFs and photo PDFs", "On-device text recognition and metadata removal", "Preview edits, keep your originals, and share new copies"],
+        privacy=[
+            ("The short version", "iLovePhoto doesn't collect or transmit your photos or personal information. Photo editing, background removal, face detection and text recognition run on your device. There's no account, advertising, analytics, tracking or external image-processing service."),
+            ("Photos and Files", "You select images through Apple's Photos and Files pickers. iLovePhoto stores imported copies and generated files in its private documents folder. Files selected from iCloud or another cloud provider may need to download through that provider before import; the provider's own privacy policy applies."),
+            ("Saving and device backups", "Saving an image to Photos requests permission to add items to your photo library. You can deny this permission and still share exports to Files. Depending on your iOS settings, system device backups may include iLovePhoto's local documents."),
+            ("Image metadata", "Generated image exports are re-encoded without copying the source GPS, EXIF, camera or capture-date dictionaries. Original imported copies may still contain that metadata. Removing metadata doesn't remove information visible in the picture, such as text, faces or landmarks."),
+            ("Text recognition and clipboard", "Text recognition uses Apple Vision on your device. Extracted text is saved locally. It is copied to the system clipboard only when you tap Copy text."),
+            ("Sharing", "Exports leave the app only when you choose a sharing destination or save them to Photos or Files. The destination's own privacy policy applies. If you email support and include an attachment, you choose which information to send."),
+            ("Deleting your data", "Delete an imported photo from the app's Photos tab to remove the local copy, or delete a batch from Exports to remove its generated files. Your original items in Photos or Files are kept. Uninstalling iLovePhoto removes its local container; copies you saved elsewhere and existing device backups are managed separately."),
+            ("Changes", "If this policy changes, the updated version will be posted here with a new date."),
+        ],
+        faq=[
+            ("Does editing replace my original photos?", "No. iLovePhoto imports a copy and creates new files for every export. Your originals in Photos or Files are never overwritten."),
+            ("How do I save or share an edited photo?", "Choose a tool, select your photos, adjust the settings and tap Export. On the result screen, use Share or save to Files, or Save images to Photos. You can reopen generated files from Exports."),
+            ("Why can't I save to Photos?", "Allow iLovePhoto to add photos in your iPhone or iPad Settings. If you prefer not to grant access, use Share or save to Files instead. PDFs and text files can be saved to Files."),
+            ("Can I use iLovePhoto offline?", "Yes, once your selected source files are available on the device. Importing a photo stored only in iCloud or another cloud service may require an internet connection to download it first."),
+            ("Which file formats and batch sizes are supported?", "You can import up to 30 images per batch, up to 100 MB per file, using formats supported by iOS ImageIO. Exports include JPG, PNG, HEIC and TIFF, plus collage, GIF, PDF and text tools. Animated images, Live Photos and multi-page images are edited as still images using the first frame. SVG and PSD are not supported."),
+            ("Why did the output size or file size change?", "JPG and HEIC compression can lose detail, and some inputs produce larger files after conversion. Source processing is limited to 24 megapixels and 6000 pixels on the longest side; GIF frames are limited to 800 pixels. Resize fits inside your selected dimensions while preserving aspect ratio. Enlargement interpolates pixels and isn't AI detail recovery."),
+            ("How do I keep a transparent background?", "After removing the background, choose PNG or TIFF and leave White background instead of transparency off. JPG and HEIC exports place transparent pixels on white."),
+            ("Did face blur hide every face?", "Not necessarily. Automatic face detection can miss faces, and background removal and text recognition can make mistakes. Inspect every result before sharing, especially when privacy matters."),
+            ("How do I keep editing an exported photo?", "Open its result screen and choose Edit this result, then pick the next tool. The previous export remains available."),
+        ],
+    ),
 }
 
 CSS = """
@@ -104,6 +133,7 @@ for key, a in APPS.items():
     cards.append(f'<div class="card" style="--accent:{a["accent"]}"><div class="dot"></div><h2>{html.escape(a["name"])}</h2><p class="muted">{html.escape(a["pitch"])}</p><p class="links"><a href="{key}/">About</a><a href="{key}/support/">Support</a><a href="{key}/privacy/">Privacy</a></p></div>')
 
 index = f'<h1>Apps by Alphaware</h1><p class="muted">Small, private, free iPhone apps.</p><div class="apps">{"".join(cards)}</div>'
-write("index.html", page("Apps by Alphaware", "#6958E8", index, "Softly and Launchloom: small, private, free iPhone apps."))
+app_names = ", ".join(a["name"] for a in APPS.values())
+write("index.html", page("Apps by Alphaware", "#6958E8", index, f"{app_names}: small, private, free iPhone and iPad apps."))
 write(".nojekyll", "")
-write("README.md", "# Apps by Alphaware\n\nPublic support and privacy pages for Softly and Launchloom, served by GitHub Pages. Edit `build.py`, run `python3 build.py`, and push.\n")
+write("README.md", "# Apps by Alphaware\n\nPublic app, support and privacy pages for Softly, Launchloom and iLovePhoto, served by GitHub Pages. Edit `build.py`, run `python3 build.py`, and push.\n")
