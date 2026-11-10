@@ -168,6 +168,7 @@ APPS = {
             ("How do I change my name or delete my player?", "Open Play online to change your name or choose Delete my online player. Local game names can be edited from table options. Online deletion does not erase local saves."),
         ],
         community=[
+            ("Your content", "You retain your rights in your chosen name and messages. By posting them, you permit Ludo Lounge to display them to table participants and process/store them to run games, prevent abuse and review reports under the privacy policy. Do not post content you lack permission to share."),
             ("Play respectfully", "Online play is for ages 13+. No hateful, sexual, threatening, abusive or harassing names or messages. Do not promote illegal activity, spam, impersonation or scams. Do not share private contact information or links in chat."),
             ("Know your opponent", "Computer opponents are automated and labelled Computer. Human-player availability varies. Do not impersonate the developer, another player or a moderator."),
             ("Report and block", "Use the message flag or Players → Report in chat history. Reporting records relevant content and blocks that guest from your chat and future matching. You can also block without reporting. For urgent follow-up or a report outside the app, email jkexam.in@gmail.com with the reference, display name, room code and approximate time. Never include guest credentials."),
