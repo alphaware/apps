@@ -139,6 +139,42 @@ APPS = {
             ("Where do I find backups and appearance settings?", "Open Settings in Oftenly. You can change appearance, manage archived habits, configure iCloud sync, and export or import your data there."),
         ],
     ),
+    "ludo": dict(
+        name="Ludo Lounge", full="Ludo Lounge", accent="#3777EF", soft="#DBE8FF", updated="10 November 2026",
+        tagline="A little luck. A clever move.",
+        pitch="Classic Ludo for iPhone: local play, private online rooms, and instant tables with clearly labelled computer opponents.",
+        features=["Local 2–6-player Ludo and offline computer games", "Private online rooms with six-character codes", "Play Now: human matching first, with labelled computers filling open seats after eight seconds", "Quick games, teams and configurable house rules", "Table chat with filtering, reporting and blocking", "Virtual cosmetic coins, sound controls and a local tournament"],
+        privacy_description="How Ludo Lounge handles local saves, online guest players, chat, reports and advertising data.",
+        privacy=[
+            ("Who operates the app", "Ludo Lounge is provided by Yawar Azad, publishing as Alphaware. Contact: jkexam.in@gmail.com. This policy covers the iPhone app and the Ludo service at ludo.jkexam.in."),
+            ("Local play", "Local matches, preferences, virtual coins and cosmetic progression are stored on your iPhone. They are not a server-owned wallet and have no cash value. Device backups may include local app storage under Apple's backup settings."),
+            ("Online guest players", "Online play creates a device-local guest identity. The service receives your chosen display name, a random player identifier, room membership, readiness and game actions. A bearer credential is kept in iOS Keychain; the server stores its hash rather than the credential. These records are linked to your guest identifier for game functionality and security. No Apple Game Center login, email or real name is required."),
+            ("Chat and safety", "Messages are optional and shared with players at your table. Chosen names and chat are filtered for a first line of protection. Reports include the reporter and reported guest identifiers, table identifier, reason, display name and selected message when applicable. Blocking records the two guest identifiers to hide communication and prevent future matching. Moderators can review reports and suspend a guest. Filtering cannot detect every form or language of abuse."),
+            ("Computer opponents", "Play Now first looks for human players. After eight seconds, server-controlled computer players fill empty seats; they are labelled Computer. A creator can start with computers immediately. Computer opponents are automated game logic, not human players or a generative AI chat service."),
+            ("Network and operational data", "The service processes network information such as IP addresses for requests, rate limiting and security. Operational hosting/access logs may contain IP addresses and request metadata. We do not use these logs to build advertising profiles. Our hosting and network providers process the data needed to deliver and protect the service."),
+            ("Advertising", "The app includes Google Mobile Ads and Google's User Messaging Platform. Ads may be enabled by the service. Requests are configured for non-personalized ads, with consent where required, and the app does not request access to Apple's advertising identifier through App Tracking Transparency. Non-personalized does not mean no data collection. Google may process device identifiers, approximate location including IP-derived location, ad impressions/interactions, product interactions, crash logs and performance data for advertising, analytics and SDK operation. Some data may be associated with a device. The app does not send Google your lounge name, chat or guest credential, and does not intentionally combine lounge records with advertising data. Google's policies and your consent choices also apply."),
+            ("Choices", "Where required, Google presents consent choices before ads can load. Settings shows Ad privacy choices when the consent framework makes those choices available. You can play local games offline. Chat is optional; use mute, block and report controls for unwanted communication."),
+            ("Retention", "Guest credentials expire after 30 days. Active rooms expire within 24 hours; finished rooms usually expire within one hour. The service prunes expired data periodically. Retry receipts expire after a day. Safety reports may be retained for up to 30 days, including relevant reported content after a guest is deleted, to investigate abuse. Blocks last while the corresponding guest identities exist. Operational records are kept only as needed for security and service operation."),
+            ("Deletion", "Use Play online → Delete my online player to delete your guest credential/session, remove your chat and anonymize your roster name in retained tables. Leaving a table does not delete the guest. Delete the app to remove ordinary local saves and settings; to delete the online guest, use the in-app deletion control before uninstalling. iOS Keychain credentials can outlast uninstalling. Report evidence may remain for the limited safety-retention period above. Contact support for privacy questions; losing a device credential can prevent verification or recovery of an old seat."),
+            ("Support", "If you email support, we receive the email address and whatever information or attachments you choose to send. Do not send passwords, guest credentials, payment details or sensitive personal information. Support correspondence is used to respond and resolve the issue."),
+            ("Age and changes", "Online play is intended for ages 13 and over. The app is not a children's advertising service. If you believe a child has provided inappropriate personal information, contact support. Material changes will be posted on this page with an updated date."),
+        ],
+        faq=[
+            ("How do I start quickly?", "Open Play online, enter a friendly name and tap Play Now. We look for humans for eight seconds, then labelled computers fill open seats. Or choose Play vs computer from the home screen for offline play."),
+            ("How do I play with friends?", "Create a private room and share its six-character code. Everyone marks ready; the creator starts the game. Online tables require internet."),
+            ("How do I report or block someone?", "Open table chat and its history/player controls. Use Players → Report or Block, or the flag beside a message. Reporting also blocks that guest. Reports are available to moderators. For a follow-up, email support with the report reference; avoid including private credentials."),
+            ("What happens if I leave?", "On updated tables an explicit departure forfeits your seat. Temporary inactivity uses automatic actions, but three missed turns cause a loss. A manual accepted game action resets missed turns."),
+            ("Can coins be bought or redeemed?", "No. They are local cosmetic rewards. There are no coin purchases, wagers, entry fees, cash prizes or redemption."),
+            ("How do I change my name or delete my player?", "Open Play online to change your name or choose Delete my online player. Local game names can be edited from table options. Online deletion does not erase local saves."),
+        ],
+        community=[
+            ("Play respectfully", "Online play is for ages 13+. No hateful, sexual, threatening, abusive or harassing names or messages. Do not promote illegal activity, spam, impersonation or scams. Do not share private contact information or links in chat."),
+            ("Know your opponent", "Computer opponents are automated and labelled Computer. Human-player availability varies. Do not impersonate the developer, another player or a moderator."),
+            ("Report and block", "Use the message flag or Players → Report in chat history. Reporting records relevant content and blocks that guest from your chat and future matching. You can also block without reporting. For urgent follow-up or a report outside the app, email jkexam.in@gmail.com with the reference, display name, room code and approximate time. Never include guest credentials."),
+            ("Moderation", "The service filters names and messages, retains reports in a private moderation queue, and allows the operator to suspend abusive guest identities. Reports are reviewed to decide appropriate action; malicious reports are not permitted. Filters are imperfect: block and report anything that gets through. Moderation contact: jkexam.in@gmail.com."),
+            ("Fair play", "Do not exploit the service, automate abuse, manipulate reports or interfere with another player's connection. The server owns online dice and game state. Virtual coins and the local tournament do not involve money, stakes or prizes."),
+        ],
+    ),
 }
 
 CSS = """
@@ -179,10 +215,15 @@ for key, a in APPS.items():
     write(f"{key}/index.html", page(a["full"], a["accent"], home, a["pitch"]))
 
     sections = "".join(f"<h2>{html.escape(h)}</h2><p>{html.escape(t)}</p>" for h, t in a["privacy"])
-    privacy = f"""{header(a)}<h1>Privacy policy</h1><p class="muted">{a['name']} · Last updated {UPDATED}</p>{sections}
+    privacy = f"""{header(a)}<h1>Privacy policy</h1><p class="muted">{a['name']} · Last updated {a.get('updated', UPDATED)}</p>{sections}
 <h2>Contact</h2><p>Questions about privacy: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>"""
-    write(f"{key}/privacy/index.html", page(f"{a['name']} privacy policy", a["accent"], privacy, f"How {a['name']} handles your data: it doesn't collect any."))
+    if key == "ludo":
+        privacy += '<p><a href="https://policies.google.com/privacy">Google privacy policy</a> · <a href="https://support.google.com/admob/answer/6128543">Google advertising data</a> · <a href="../community/">Community rules</a></p>'
+    write(f"{key}/privacy/index.html", page(f"{a['name']} privacy policy", a["accent"], privacy, a.get("privacy_description", f"How {a['name']} handles your data: it doesn't collect any.")))
 
+    if "community" in a:
+        rules = "".join(f"<h2>{html.escape(h)}</h2><p>{html.escape(t)}</p>" for h,t in a["community"])
+        write(f"{key}/community/index.html", page(f"{a['name']} community rules", a["accent"], header(a)+"<h1>Community rules</h1>"+rules+f'<p class="links"><a href="../support/">Support</a><a href="../privacy/">Privacy</a></p>', "Safe, respectful online Ludo with reporting and blocking."))
     faq = "".join(f"<h2>{html.escape(q)}</h2><p>{html.escape(t)}</p>" for q, t in a["faq"])
     support = f"""{header(a)}<h1>Support</h1><div class="card"><p><strong>Need help or found a bug?</strong><br>Email <a href="mailto:{EMAIL}?subject={a['name']}%20support">{EMAIL}</a> and include your iPhone model and iOS version. You'll usually get a reply within two working days.</p></div>
 <h1 style="font-size:28px;margin-top:36px">Common questions</h1>{faq}<p class="links" style="margin-top:30px"><a href="../privacy/">Privacy policy</a></p>"""
@@ -191,4 +232,4 @@ for key, a in APPS.items():
 
 write("index.html", render_home())
 write(".nojekyll", "")
-write("README.md", "# Apps by Alphaware\n\nPublic app, support and privacy pages for Softly, Launchloom, iLovePhoto, Oftenly and Paperly, served by GitHub Pages. App content lives in `build.py`; the landing page lives in `home.py` and `assets/home.css`. Run `python3 build.py` and push to publish.\n")
+write("README.md", "# Apps by Alphaware\n\nPublic app, support and privacy pages for Softly, Launchloom, iLovePhoto, Oftenly, Paperly and Ludo Lounge, served by GitHub Pages. App content lives in `build.py`; the landing page lives in `home.py` and `assets/home.css`. Run `python3 build.py` and push to publish.\n")
